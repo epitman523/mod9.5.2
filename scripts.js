@@ -16,9 +16,9 @@ function buildString(item) {
     return `<li><img src="${item}" alt="image of cute dog" /></li>`;
 }
 function showDogImg(responseJSON) {
-    $('.response').removeClass('hidden');
     const messageArray = responseJSON.message;
-    let dogData = messageArray.map(message => buildString(message));
+    const dogData = messageArray.map(message => buildString(message));
+    $('.response').removeClass('hidden');
     console.log(messageArray);
     $('.dogs').append(dogData);
 }
