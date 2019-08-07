@@ -6,20 +6,24 @@ function getDogImages() {
     if (!userNumber) {
         userNumber = 3;
     }
-    //4) add number to end of url string
     let doggieURL = 'https://dog.ceo/api/breeds/image/random/' + userNumber;
-    //5) Use fetch to access Dog API
     fetch(doggieURL)
         .then(response => response.json())
-        //6) Console.log returned images
-        .then(responseJSON => console.log(responseJSON))
+        .then(responseJSON => showDogImg(responseJSON))
         .catch(error => console.log('Something went wrong'));
 }
-
-//1) User submits form
+function buildString(item) {
+    return `<li><img src="${item}" alt="image of cute dog" /></li>`;
+}
+function showDogImg(responseJSON) {
+    $('.response').removeClass('hidden');
+    const messageArray = responseJSON.message;
+    let dogData = messageArray.map(message => buildString(message));
+    console.log(messageArray);
+    $('.dogs').append(dogData);
+}
 function watchDogForm() {
     $('form').submit(event => {
-        //2) prevent default
         event.preventDefault();
         getDogImages();
     });

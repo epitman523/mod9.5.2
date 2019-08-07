@@ -23,8 +23,28 @@ h1 {
     font-size: 4rem;
     margin-bottom: 2rem;
 }
+form {
+    margin-bottom: 5rem;
+}
 label {
     font-size: 2rem;
     display: block;
     margin-bottom: 2rem;
+}
+.hidden {
+    display: none;
+}
+.dogs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    flex-wrap: wrap;
+}
+.dogs li {
+    width: 30%;
+    padding: 2rem;
+}
+.dogs li img {
+    width: 100%;
 }
