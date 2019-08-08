@@ -1,7 +1,6 @@
 'use strict';
 
 function getDogImages() {
-    //3) get number user entered
     let userNumber = $('input').val();
     if (!userNumber) {
         userNumber = 3;
@@ -25,6 +24,7 @@ function showDogImg(responseJSON) {
 function watchDogForm() {
     $('form').submit(event => {
         event.preventDefault();
+        $('.dogs').empty();
         getDogImages();
     });
 }
